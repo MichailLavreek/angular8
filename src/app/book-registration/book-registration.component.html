@@ -1,24 +1,36 @@
 <form (ngSubmit)="saveBook()" [formGroup]="bookForm">
   <div>
-    <label>Title</label><input formControlName="title">
+    <mat-form-field>
+      <input matInput placeholder="Title" formControlName="title">
+    </mat-form-field>
   </div>
   <div *ngIf="isValid('title')" [style.color]="'red'">
     Please, enter valid title
   </div>
   <div>
-    <label>Author</label><input formControlName="author">
+    <mat-form-field>
+      <input matInput placeholder="Author" formControlName="author">
+    </mat-form-field>
   </div>
   <div>
-    <label>Year</label><input formControlName="year">
+    <mat-form-field>
+      <input matInput placeholder="Year" formControlName="year">
+    </mat-form-field>
   </div>
   <div>
-    <label>Pages</label><input formControlName="pages">
+    <mat-form-field>
+      <input matInput placeholder="Pages" formControlName="pages">
+    </mat-form-field>
   </div>
   <div>
-    <label>Price</label><input formControlName="price">
+    <mat-form-field>
+      <input matInput placeholder="Price" formControlName="price">
+    </mat-form-field>
   </div>
   <div>
-    <label>Description</label><input formControlName="description">
+    <mat-form-field>
+      <textarea matInput placeholder="Description" formControlName="description"></textarea>
+    </mat-form-field>
   </div>
-  <button type="submit" [disabled]="!bookForm.valid">Save</button>
+  <button type="submit" mat-flat-button [disabled]="!bookForm.valid">Save</button>
 </form>
