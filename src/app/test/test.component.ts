@@ -12,8 +12,7 @@ export class TestComponent implements OnInit {
   // @ViewChild('myElement')
   // myElement: ElementRef;
 
-  constructor(private myElement: ElementRef,
-              private renderer: Renderer2) {
+  constructor(private myElement: ElementRef) {
   }
 
   ngOnInit() {
@@ -21,7 +20,7 @@ export class TestComponent implements OnInit {
 
   update() {
     this.label = 'Hello, IT-Discovery';
-    this.renderer.setProperty(this.myElement.nativeElement, 'textContent', this.label);
+    // this.renderer.setProperty(this.myElement.nativeElement, 'textContent', this.label);
     // this.myElement.nativeElement.textContent = this.label;
   }
 }
