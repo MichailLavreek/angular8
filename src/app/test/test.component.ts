@@ -1,4 +1,6 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Observable, Observer, range} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-test',
@@ -16,6 +18,12 @@ export class TestComponent implements OnInit {
   }
 
   ngOnInit() {
+    // const observable$ = new Observable((observer: Observer<number>) => {
+    //   observer.next(1);
+    //   observer.complete();
+    // });
+    range('a'.charCodeAt(0), 26).pipe(map(i => String.fromCharCode(i)))
+      .subscribe(res => console.log(res));
   }
 
   update() {
