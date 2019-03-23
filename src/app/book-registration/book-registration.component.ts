@@ -20,7 +20,7 @@ export class BookRegistrationComponent implements OnInit {
       title: formBuilder.control('', [Validators.required,
         Validators.minLength(5)]),
       description: formBuilder.control('',
-        [Validators.required, this.validateDescription()]),
+        [Validators.required, this.validateDescription]),
       author: formBuilder.control('', [Validators.required]),
       pages: formBuilder.control('', [Validators.required]),
       year: formBuilder.control('', [Validators.required]),
@@ -54,13 +54,12 @@ export class BookRegistrationComponent implements OnInit {
       }));
   }
 
-  validateDescription(): ValidatorFn {
-    return (c: FormControl) => {
-      if (c.value.toString().length > 5) {
-        return null;
-      } else {
-        return {descTooSmall: true};
-      }
-    };
+  validateDescription(c: FormControl): ValidationErrors {
+    if (c.value.toString().length > 5) {
+      return null;
+    } else {
+      return {descTooSmall: true};
+    }
   }
+
 }
