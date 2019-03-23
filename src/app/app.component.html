@@ -1,0 +1,15 @@
+<app-book-registration></app-book-registration>
+<div>Please, specify number of books:
+  <input type="text" [(ngModel)]="booksNumber"/></div>
+<div>
+  <div *ngFor="let book of books$ | async | slice : 0 : booksNumber"
+       [ngClass]="{ javascript : isJavaScript(book)}">
+    <app-book-details [book]="book"></app-book-details>
+  </div>
+  <div>
+    Please, enter your option:
+    <input type="text">
+    <button type="button"> Submit</button>
+  </div>
+  <div>You chosen ...</div>
+</div>

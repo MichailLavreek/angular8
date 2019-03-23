@@ -1,0 +1,24 @@
+<form (ngSubmit)="saveBook()" [formGroup]="bookForm">
+  <div>
+    <label>Title</label><input formControlName="title">
+  </div>
+  <div *ngIf="isValid('title')" [style.color]="'red'">
+    Please, enter valid title
+  </div>
+  <div>
+    <label>Author</label><input formControlName="author">
+  </div>
+  <div>
+    <label>Year</label><input formControlName="year">
+  </div>
+  <div>
+    <label>Pages</label><input formControlName="pages">
+  </div>
+  <div>
+    <label>Price</label><input formControlName="price">
+  </div>
+  <div>
+    <label>Description</label><input formControlName="description">
+  </div>
+  <button type="submit" [disabled]="!bookForm.valid">Save</button>
+</form>
