@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from '../book';
 import {BookService} from '../book.service';
-import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
@@ -19,7 +19,8 @@ export class BookRegistrationComponent implements OnInit {
     this.bookForm = formBuilder.group({
       title: formBuilder.control('', [Validators.required,
         Validators.minLength(5)]),
-      description: formBuilder.control('', [Validators.required]),
+      description: formBuilder.control('',
+        [Validators.required, this.validateDescription()]),
       author: formBuilder.control('', [Validators.required]),
       pages: formBuilder.control('', [Validators.required]),
       year: formBuilder.control('', [Validators.required]),
@@ -51,5 +52,15 @@ export class BookRegistrationComponent implements OnInit {
           return {titleNotUnique: true};
         }
       }));
+  }
+
+  validateDescription(): ValidatorFn {
+    return (c: FormControl) => {
+      if (c.value.toString().length > 5) {
+        return null;
+      } else {
+        return {descTooSmall: true};
+      }
+    };
   }
 }
