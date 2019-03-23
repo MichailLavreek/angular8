@@ -9,6 +9,7 @@ import {FontStyleDirective} from './font-style.directive';
 import {BookDetailsComponent} from './book-details/book-details.component';
 import {HttpClientModule} from '@angular/common/http';
 import { TestComponent } from './test/test.component';
+import { StatusComponent } from './components/status/status.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TestComponent } from './test/test.component';
     BookRegistrationComponent,
     FontStyleDirective,
     BookDetailsComponent,
-    TestComponent
+    TestComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,
