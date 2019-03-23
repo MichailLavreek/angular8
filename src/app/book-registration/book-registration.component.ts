@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from '../book';
 import {BookService} from '../book.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-book-registration',
@@ -23,6 +25,9 @@ export class BookRegistrationComponent implements OnInit {
       year: formBuilder.control('', [Validators.required]),
       price: formBuilder.control('', [Validators.required])
     });
+
+    this.bookForm.get('title').setAsyncValidators(
+      this.validateUniqueBookTitle.bind(this));
   }
 
   ngOnInit() {
@@ -35,5 +40,16 @@ export class BookRegistrationComponent implements OnInit {
 
   isValid(name: string): boolean {
     return this.bookForm.get(name).touched && !this.bookForm.get(name).valid;
+  }
+
+  validateUniqueBookTitle(c: AbstractControl): Observable<ValidationErrors> {
+    return this.bookService.bookExists(c.value)
+      .pipe(map(bookExists => {
+        if (!bookExists) {
+          return null;
+        } else {
+          return {titleNotUnique: true};
+        }
+      }));
   }
 }

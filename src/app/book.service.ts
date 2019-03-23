@@ -47,4 +47,9 @@ export class BookService {
   save(book: Book): void {
     this.books.push(book);
   }
+
+  bookExists(title: string): Observable<boolean> {
+    return of(this.books.map(book => book.title)
+      .indexOf(title) >= 0);
+  }
 }
