@@ -10,6 +10,9 @@ import {BookDetailsComponent} from './book-details/book-details.component';
 import {HttpClientModule} from '@angular/common/http';
 import { TestComponent } from './test/test.component';
 import { StatusComponent } from './components/status/status.component';
+import { BannerHeaderComponent } from './components/banner-header/banner-header.component';
+import { BestBuyComponent } from './components/best-buy/best-buy.component';
+import { DiscountsComponent } from './components/discounts/discounts.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { StatusComponent } from './components/status/status.component';
     FontStyleDirective,
     BookDetailsComponent,
     TestComponent,
-    StatusComponent
+    StatusComponent,
+    BannerHeaderComponent,
+    BestBuyComponent,
+    DiscountsComponent
   ],
   imports: [
     BrowserModule,
