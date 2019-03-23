@@ -16,23 +16,19 @@ export class BannerHeaderComponent implements OnInit {
 
   private components: any[] = [DiscountsComponent, BestBuyComponent];
 
-  private currentComponent: any;
-
   constructor(private componentFactoryResolver:
                 ComponentFactoryResolver) {
   }
 
   ngOnInit() {
-    interval(5000).pipe(map(i =>
+    interval(1000).pipe(map(i =>
       Math.floor(Math.random() * 10) % 2),
       map(i => this.components[i]))
       .subscribe(res => this.displayComponent(res));
   }
 
   private displayComponent(comp): void {
-    if (this.currentComponent) {
-      this.parent.clear();
-    }
+    this.parent.clear();
     const component =
       this.componentFactoryResolver.resolveComponentFactory(comp);
     this.parent.createComponent(component);

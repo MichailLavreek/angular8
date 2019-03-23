@@ -34,7 +34,8 @@ import { DiscountsComponent } from './components/discounts/discounts.component';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [BestBuyComponent, DiscountsComponent]
 })
 export class AppModule {
 }
