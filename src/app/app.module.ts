@@ -8,6 +8,7 @@ import {BookRegistrationComponent} from './book-registration/book-registration.c
 import {FontStyleDirective} from './font-style.directive';
 import {BookDetailsComponent} from './book-details/book-details.component';
 import {HttpClientModule} from '@angular/common/http';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {HttpClientModule} from '@angular/common/http';
     QuotePipe,
     BookRegistrationComponent,
     FontStyleDirective,
-    BookDetailsComponent
+    BookDetailsComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
