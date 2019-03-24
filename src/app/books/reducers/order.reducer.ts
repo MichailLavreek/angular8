@@ -1,5 +1,6 @@
 import {Book} from '../../model/book';
 import {OrderActionTypes, OrderActionTypeUnion} from '../actions/order.actions';
+import {createFeatureSelector, createSelector} from '@ngrx/store';
 
 export interface OrderState {
   readonly books: ReadonlyArray<Book>;
@@ -42,3 +43,10 @@ export function orderReducer(state = orderInitialState, action: OrderActionTypeU
       return state;
   }
 }
+
+export const selectOrderState = createFeatureSelector('order');
+
+export const selectBooks = (state: OrderState) => state.books;
+
+export const selectBooksSelection = createSelector(selectOrderState,
+  selectBooks);

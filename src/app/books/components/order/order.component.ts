@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from '../../../model/book';
-import {OrderState} from '../../reducers/order.reducer';
-import {Store} from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
 import {GlobalState} from '../../../reducers/global.reducer';
+import {selectBooksSelection} from '../../reducers/order.reducer';
 
 @Component({
   selector: 'app-order',
@@ -17,7 +16,7 @@ export class OrderComponent implements OnInit {
 
   constructor(private store: Store<GlobalState>) {
     this.books$ = this.store.pipe(
-       map(state => state.order.books)
+       select(selectBooksSelection)
     );
   }
 
