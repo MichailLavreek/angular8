@@ -13,7 +13,7 @@ import {BannerModule} from './banner/banner.module';
 import {AppRoutingModule} from './app-routing.module';
 import {NewsModule} from './news/news.module';
 import {StoreModule} from '@ngrx/store';
-import {orderReducer} from './books/reducers/book-selection.reducer';
+import {orderReducer} from './books/reducers/order.reducer';
 
 @NgModule({
   declarations: [

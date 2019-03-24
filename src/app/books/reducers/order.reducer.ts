@@ -1,4 +1,3 @@
-import {Action} from '@ngrx/store';
 import {Book} from '../../model/book';
 
 export interface OrderState {

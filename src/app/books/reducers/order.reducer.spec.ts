@@ -1,11 +1,11 @@
-import { reducer, initialState } from './book-selection.reducer';
+import { orderReducer, initialState } from './order.reducer';
 
 describe('BookSelection Reducer', () => {
   describe('an unknown action', () => {
     it('should return the previous state', () => {
       const action = {} as any;
 
-      const result = reducer(initialState, action);
+      const result = orderReducer(initialState, action);
 
       expect(result).toBe(initialState);
     });
