@@ -10,6 +10,8 @@ import {BestBuyComponent} from './banner/components/best-buy/best-buy.component'
 import {DiscountsComponent} from './banner/components/discounts/discounts.component';
 import {BooksModule} from './books/books.module';
 import {BannerModule} from './banner/banner.module';
+import {AppRoutingModule} from './app-routing.module';
+import {NewsModule} from './news/news.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {BannerModule} from './banner/banner.module';
   imports: [
     BrowserModule,
     BooksModule,
-    BannerModule
+    BannerModule,
+    NewsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],
