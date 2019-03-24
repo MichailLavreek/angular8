@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Book} from '../../model/book';
-import {Observable} from 'rxjs';
+import {EMPTY, Observable} from 'rxjs';
 import {of} from 'rxjs/internal/observable/of';
 
 @Injectable({
@@ -12,6 +12,7 @@ export class BookService {
   constructor() {
     this.books = [
       {
+        id: 1,
         title: 'JavaScript: The Good Parts',
         author: 'Douglas Crockford',
         description: 'This authoritative book scrapes away these bad features to reveal a subset of JavaScript that\'s\n' +
@@ -21,6 +22,7 @@ export class BookService {
         price: 100,
       },
       {
+        id: 2,
         title: 'Mastering TypeScript',
         author: 'Nathan Rozentals',
         description: 'Build enterprise-ready, industrial strength web applications using TypeScript and leading\n' +
@@ -30,6 +32,7 @@ export class BookService {
         price: 150
       },
       {
+        id: 3,
         title: 'Switching to Angular 2',
         author: 'Minko Gechev',
         description: 'Start using TypeScript to supercharge your Angular 2 applications',
@@ -46,6 +49,15 @@ export class BookService {
 
   save(book: Book): void {
     this.books.push(book);
+  }
+
+  findById(id: number): Observable<Book> {
+    for (const book of this.books) {
+      if (book.id === id) {
+        return of(book);
+      }
+    }
+    return EMPTY;
   }
 
   bookExists(title: string): Observable<boolean> {

@@ -8,10 +8,11 @@ import {MatButtonModule, MatDialogModule, MatInputModule} from '@angular/materia
 import {SharedModule} from '../shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CoreModule} from '../core/core.module';
+import { BookComponent } from './components/book/book.component';
 
 @NgModule({
-  declarations: [BookRegistrationComponent, BookDetailsComponent, BooksComponent],
-  exports: [BooksComponent],
+  declarations: [BookRegistrationComponent, BookDetailsComponent, BooksComponent, BookComponent],
+  exports: [BooksComponent, BookComponent],
   imports: [
     CommonModule,
     FormsModule,
