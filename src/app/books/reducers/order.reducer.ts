@@ -1,8 +1,8 @@
 import {Book} from '../../model/book';
 
 export interface OrderState {
-  books: Book[];
-  confirmed: boolean;
+  readonly books: ReadonlyArray<Book>;
+  readonly confirmed: boolean;
 }
 
 export const initialState: OrderState = {
@@ -20,7 +20,7 @@ export function orderReducer(state = initialState, action: any): OrderState {
     }
     case 'removeBook': {
       return {
-        books: state.books.filter(book => book.id === action.payload),
+        books: state.books.filter(book => book.id !== action.payload),
         confirmed: false
       };
     }
