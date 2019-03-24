@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Book} from '../../../model/book';
 import {BookService} from '../../services/book.service';
-import {AsyncEventBus} from '../../../services/async-event-bus';
+import {AsyncEventBus} from '../../../core/async-event-bus';
 import {MatDialog} from '@angular/material';
-import {ApplicationEvent} from '../../../services/application-event';
+import {ApplicationEvent} from '../../../core/application-event';
 import {BookRegistrationComponent} from '../book-registration/book-registration.component';
+import {Book} from '../../../model/book';
 
 @Component({
   selector: 'app-books',

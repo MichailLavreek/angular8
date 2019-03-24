@@ -7,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule, MatDialogModule, MatInputModule} from '@angular/material';
 import {SharedModule} from '../shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CoreModule} from '../core/core.module';
 
 @NgModule({
   declarations: [BookRegistrationComponent, BookDetailsComponent, BooksComponent],
@@ -19,7 +20,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatButtonModule,
     MatDialogModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CoreModule
   ]
 })
 export class BooksModule { }

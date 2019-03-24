@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {AsyncEventBus} from '../../services/async-event-bus';
+import {AsyncEventBus} from '../../core/async-event-bus';
 import {map} from 'rxjs/operators';
 
 @Component({
