@@ -3,7 +3,6 @@ import {Actions, Effect, ofType} from '@ngrx/effects';
 import {BookService} from '../services/book.service';
 import {of} from 'rxjs';
 import {OrderActionTypes, OrderActionTypeUnion, OrderFailedAction, OrderSentAction} from '../actions/order.actions';
-import {OrderState} from '../reducers/order.reducer';
 import {catchError, exhaustMap, map} from 'rxjs/operators';
 import {Book} from '../../model/book';
 

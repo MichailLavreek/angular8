@@ -4,6 +4,8 @@ import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 import {GlobalState} from '../../../reducers/global.reducer';
 import {selectBooksSelection} from '../../reducers/order.reducer';
+import {ConfirmOrderAction} from '../../actions/order.actions';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-order',
@@ -16,7 +18,7 @@ export class OrderComponent implements OnInit {
 
   constructor(private store: Store<GlobalState>) {
     this.books$ = this.store.pipe(
-       select(selectBooksSelection)
+      select(selectBooksSelection)
     );
   }
 
@@ -24,6 +26,9 @@ export class OrderComponent implements OnInit {
   }
 
   confirm() {
-
+    this.store.pipe(
+      select(selectBooksSelection), take(1)
+    ).subscribe(books => this.store.dispatch(
+      new ConfirmOrderAction(books)));
   }
 }
