@@ -4,3 +4,6 @@
 <div>Pages: {{book.pages}}</div>
 <div appFontStyle [fontWeight]="'600'">Description: {{book.description}}    </div>
 <div>Price: {{book.price | currency: 'UAH'}}</div>
+<div>
+  <button (click)="addToOrder()">Add to order</button>
+</div>

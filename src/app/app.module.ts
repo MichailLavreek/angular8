@@ -14,6 +14,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {NewsModule} from './news/news.module';
 import {StoreModule} from '@ngrx/store';
 import {orderReducer} from './books/reducers/order.reducer';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,10 @@ import {orderReducer} from './books/reducers/order.reducer';
     BannerModule,
     NewsModule,
     AppRoutingModule,
-    StoreModule.forRoot({ order: orderReducer} )
+    StoreModule.forRoot({order: orderReducer}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 10
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],

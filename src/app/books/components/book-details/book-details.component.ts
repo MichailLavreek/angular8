@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Book} from '../../../model/book';
+import {OrderState} from '../../reducers/order.reducer';
+import {Store} from '@ngrx/store';
+import {AddBookAction} from '../../actions/order.actions';
 
 @Component({
   selector: 'app-book-details',
@@ -9,6 +12,9 @@ import {Book} from '../../../model/book';
 export class BookDetailsComponent implements OnInit {
   @Input() book: Book;
 
+  constructor(private store: Store<OrderState>) {
+  }
+
   ngOnInit() {
   }
 
@@ -16,4 +22,7 @@ export class BookDetailsComponent implements OnInit {
     return year + ' year';
   }
 
+  addToOrder() {
+    this.store.dispatch(new AddBookAction(this.book));
+  }
 }

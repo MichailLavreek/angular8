@@ -9,9 +9,10 @@ import {SharedModule} from '../shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CoreModule} from '../core/core.module';
 import { BookComponent } from './components/book/book.component';
+import { OrderComponent } from './components/order/order.component';
 
 @NgModule({
-  declarations: [BookRegistrationComponent, BookDetailsComponent, BooksComponent, BookComponent],
+  declarations: [BookRegistrationComponent, BookDetailsComponent, BooksComponent, BookComponent, OrderComponent],
   exports: [BooksComponent, BookComponent],
   imports: [
     CommonModule,
