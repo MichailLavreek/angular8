@@ -20,7 +20,7 @@ export function orderReducer(state = initialState, action: any): OrderState {
     }
     case 'removeBook': {
       return {
-        books: [...state.books, action.payload],
+        books: state.books.filter(book => book.id === action.payload),
         confirmed: false
       };
     }
