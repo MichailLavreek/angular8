@@ -1,6 +1,6 @@
 Selected books:
 <div *ngFor="let book of books$ | async">
-  <label>Book: </label>
+  <label>Book: {{book.title}} </label>
 </div>
 <div>
   <button (click)="confirm()">Confirm</button>

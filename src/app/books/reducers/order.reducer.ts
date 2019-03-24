@@ -6,12 +6,12 @@ export interface OrderState {
   readonly confirmed: boolean;
 }
 
-export const initialState: OrderState = {
+export const orderInitialState: OrderState = {
   books: [],
   confirmed: false
 };
 
-export function orderReducer(state = initialState, action: OrderActionTypeUnion):
+export function orderReducer(state = orderInitialState, action: OrderActionTypeUnion):
   OrderState {
   switch (action.type) {
     case OrderActionTypes.AddBook: {
