@@ -12,6 +12,8 @@ import {BooksModule} from './books/books.module';
 import {BannerModule} from './banner/banner.module';
 import {AppRoutingModule} from './app-routing.module';
 import {NewsModule} from './news/news.module';
+import {StoreModule} from '@ngrx/store';
+import {orderReducer} from './books/reducers/book-selection.reducer';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import {NewsModule} from './news/news.module';
     BooksModule,
     BannerModule,
     NewsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({ order: orderReducer} )
   ],
   providers: [],
   bootstrap: [AppComponent],
