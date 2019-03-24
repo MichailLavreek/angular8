@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Book} from './book';
+import {Book} from '../../model/book';
 import {Observable} from 'rxjs';
 import {of} from 'rxjs/internal/observable/of';
 

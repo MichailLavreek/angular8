@@ -2,27 +2,18 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {QuotePipe} from './quote.pipe';
-import {BookRegistrationComponent} from './book-registration/book-registration.component';
-import {FontStyleDirective} from './font-style.directive';
-import {BookDetailsComponent} from './book-details/book-details.component';
-import {HttpClientModule} from '@angular/common/http';
-import { TestComponent } from './test/test.component';
-import { StatusComponent } from './components/status/status.component';
-import { BannerHeaderComponent } from './components/banner-header/banner-header.component';
-import { BestBuyComponent } from './components/best-buy/best-buy.component';
-import { DiscountsComponent } from './components/discounts/discounts.component';
-import {MatButtonModule, MatDialogModule, MatInputModule} from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BookRegistrationComponent} from './books/components/book-registration/book-registration.component';
+import {TestComponent} from './test/test.component';
+import {StatusComponent} from './components/status/status.component';
+import {BannerHeaderComponent} from './banner/components/banner-header/banner-header.component';
+import {BestBuyComponent} from './banner/components/best-buy/best-buy.component';
+import {DiscountsComponent} from './banner/components/discounts/discounts.component';
+import {BooksModule} from './books/books.module';
+import {BannerModule} from './banner/banner.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    QuotePipe,
-    BookRegistrationComponent,
-    FontStyleDirective,
-    BookDetailsComponent,
     TestComponent,
     StatusComponent,
     BannerHeaderComponent,
@@ -31,13 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatInputModule,
-    MatButtonModule,
-    MatDialogModule,
-    BrowserAnimationsModule
+    BooksModule,
+    BannerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

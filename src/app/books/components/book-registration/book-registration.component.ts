@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Book} from '../book';
-import {BookService} from '../book.service';
+import {Book} from '../../../model/book';
+import {BookService} from '../../services/book.service';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
