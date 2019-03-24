@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Book} from '../../model/book';
-import {EMPTY, Observable} from 'rxjs';
+import {EMPTY, Observable, throwError} from 'rxjs';
 import {of} from 'rxjs/internal/observable/of';
 
 @Injectable({
@@ -8,6 +8,8 @@ import {of} from 'rxjs/internal/observable/of';
 })
 export class BookService {
   books: Book[];
+
+  orderId = 1;
 
   constructor() {
     this.books = [
@@ -63,5 +65,12 @@ export class BookService {
   bookExists(title: string): Observable<boolean> {
     return of(this.books.map(book => book.title)
       .indexOf(title) >= 0);
+  }
+
+  makeOrder(books: ReadonlyArray<Book>): Observable<number> {
+    if (!books || books.length > 5) {
+      return throwError('Order size is incorrect');
+    }
+    return of(this.orderId++);
   }
 }

@@ -5,7 +5,9 @@ export enum OrderActionTypes {
   AddBook = '[Order] Add book',
   RemoveBook = '[Order] Remove book',
   ClearSelection = '[Order] Clear selection',
-  ConfirmOrder = '[Order] Confirm order'
+  ConfirmOrder = '[Order] Confirm order',
+  OrderSent = '[Order] Order sent',
+  OrderFailed = '[Order] Order failed'
 }
 
 export class AddBookAction implements Action {
@@ -28,7 +30,25 @@ export class ClearSelectionAction implements Action {
 
 export class ConfirmOrderAction implements Action {
   readonly type = OrderActionTypes.ConfirmOrder;
+
+  constructor(public payload: ReadonlyArray<Book>) {
+  }
+}
+
+export class OrderSentAction implements Action {
+  readonly type = OrderActionTypes.OrderSent;
+
+  constructor(public payload: number) {
+  }
+}
+
+export class OrderFailedAction implements Action {
+  readonly type = OrderActionTypes.OrderFailed;
+
+  constructor(public payload: string) {
+  }
 }
 
 export type OrderActionTypeUnion = AddBookAction |
-  RemoveBookAction | ClearSelectionAction | ConfirmOrderAction;
+  RemoveBookAction | ClearSelectionAction | ConfirmOrderAction
+  | OrderSentAction | OrderFailedAction;

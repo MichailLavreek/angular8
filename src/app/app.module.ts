@@ -15,6 +15,8 @@ import {NewsModule} from './news/news.module';
 import {StoreModule} from '@ngrx/store';
 import {orderReducer} from './books/reducers/order.reducer';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {EffectsModule} from '@ngrx/effects';
+import {OrderEffects} from './books/effects/order.effects';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
     BannerModule,
     NewsModule,
     AppRoutingModule,
+    EffectsModule.forRoot([OrderEffects]),
     StoreModule.forRoot({order: orderReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 10

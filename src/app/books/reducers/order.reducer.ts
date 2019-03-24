@@ -5,11 +5,15 @@ import {createFeatureSelector, createSelector} from '@ngrx/store';
 export interface OrderState {
   readonly books: ReadonlyArray<Book>;
   readonly confirmed: boolean;
+  readonly orderId: number | null;
+  readonly error: string | null;
 }
 
 export const orderInitialState: OrderState = {
   books: [],
-  confirmed: false
+  confirmed: false,
+  orderId: null,
+  error: null
 };
 
 export function orderReducer(state = orderInitialState, action: OrderActionTypeUnion):
@@ -17,26 +21,34 @@ export function orderReducer(state = orderInitialState, action: OrderActionTypeU
   switch (action.type) {
     case OrderActionTypes.AddBook: {
       return {
+        ...state,
         books: [...state.books, action.payload],
-        confirmed: false
       };
     }
     case OrderActionTypes.RemoveBook: {
       return {
+        ...state,
         books: state.books.filter(book => book.id !== action.payload),
-        confirmed: false
       };
     }
     case OrderActionTypes.ClearSelection: {
       return {
+        ...state,
         books: [],
-        confirmed: false
       };
     }
-    case OrderActionTypes.ConfirmOrder: {
+    case OrderActionTypes.OrderSent: {
       return {
         ...state,
+        orderId: action.payload,
         confirmed: true
+      };
+    }
+    case OrderActionTypes.OrderFailed: {
+      return {
+        ...state,
+        confirmed: false,
+        error: action.payload
       };
     }
     default:
