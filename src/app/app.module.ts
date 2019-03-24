@@ -13,7 +13,7 @@ import { StatusComponent } from './components/status/status.component';
 import { BannerHeaderComponent } from './components/banner-header/banner-header.component';
 import { BestBuyComponent } from './components/best-buy/best-buy.component';
 import { DiscountsComponent } from './components/discounts/discounts.component';
-import {MatButtonModule, MatInputModule} from '@angular/material';
+import {MatButtonModule, MatDialogModule, MatInputModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -36,11 +36,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     MatInputModule,
     MatButtonModule,
+    MatDialogModule,
     BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [BestBuyComponent, DiscountsComponent]
+  entryComponents: [BestBuyComponent, DiscountsComponent, BookRegistrationComponent]
 })
 export class AppModule {
 }

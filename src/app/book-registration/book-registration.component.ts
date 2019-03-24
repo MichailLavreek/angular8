@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from '../book';
 import {BookService} from '../book.service';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
@@ -34,13 +34,17 @@ export class BookRegistrationComponent implements OnInit {
   ngOnInit() {
   }
 
-  saveBook(): void {
-    this.bookService.save(this.bookForm.value as Book);
-    this.bookForm.reset();
-  }
+  // saveBook(): void {
+  //   this.bookService.save(this.bookForm.value as Book);
+  //   this.bookForm.reset();
+  // }
 
   isValid(name: string): boolean {
     return this.bookForm.get(name).touched && !this.bookForm.get(name).valid;
+  }
+
+  get book(): Book {
+    return this.bookForm.value as Book;
   }
 
   validateUniqueBookTitle(c: AbstractControl): Observable<ValidationErrors> {

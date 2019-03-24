@@ -1,4 +1,3 @@
-<app-book-registration></app-book-registration>
 <div>Please, specify number of books:
   <input type="text" [(ngModel)]="booksNumber"/></div>
 <div>
@@ -6,12 +5,7 @@
        [ngClass]="{ javascript : isJavaScript(book)}">
     <app-book-details [book]="book"></app-book-details>
   </div>
-  <div>
-    Please, enter your option:
-    <input type="text">
-    <button type="button"> Submit</button>
-  </div>
-  <div>You chosen ...</div>
+  <button mat-flat-button (click)="openBookDialog()">Add book</button>
 </div>
 <app-status></app-status>
 <app-banner-header></app-banner-header>
