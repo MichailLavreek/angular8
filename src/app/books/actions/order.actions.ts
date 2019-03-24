@@ -3,7 +3,7 @@ import {Book} from '../../model/book';
 
 export enum OrderActionTypes {
   AddBook = '[Order] Add book',
-  RemoveBook = '[Order] Add book',
+  RemoveBook = '[Order] Remove book',
   ClearSelection = '[Order] Clear selection',
   ConfirmOrder = '[Order] Confirm order'
 }
@@ -18,7 +18,7 @@ export class AddBookAction implements Action {
 export class RemoveBookAction implements Action {
   readonly type = OrderActionTypes.RemoveBook;
 
-  constructor(public bookId: number) {
+  constructor(public payload: number) {
   }
 }
 

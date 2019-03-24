@@ -1,4 +1,5 @@
 import {Book} from '../../model/book';
+import {OrderActionTypes, OrderActionTypeUnion} from '../actions/order.actions';
 
 export interface OrderState {
   readonly books: ReadonlyArray<Book>;
@@ -10,27 +11,28 @@ export const initialState: OrderState = {
   confirmed: false
 };
 
-export function orderReducer(state = initialState, action: any): OrderState {
+export function orderReducer(state = initialState, action: OrderActionTypeUnion):
+  OrderState {
   switch (action.type) {
-    case 'addBook': {
+    case OrderActionTypes.AddBook: {
       return {
         books: [...state.books, action.payload],
         confirmed: false
       };
     }
-    case 'removeBook': {
+    case OrderActionTypes.RemoveBook: {
       return {
         books: state.books.filter(book => book.id !== action.payload),
         confirmed: false
       };
     }
-    case 'clear': {
+    case OrderActionTypes.ClearSelection: {
       return {
         books: [],
         confirmed: false
       };
     }
-    case 'confirm': {
+    case OrderActionTypes.ConfirmOrder: {
       return {
         ...state,
         confirmed: true
